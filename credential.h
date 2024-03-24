@@ -143,6 +143,11 @@ struct credential {
 	struct strvec wwwauth_headers;
 
 	/**
+	 * A `strvec` of state headers from credential helpers.
+	 */
+	struct strvec state_headers;
+
+	/**
 	 * Internal use only. Keeps track of if we previously matched against a
 	 * WWW-Authenticate header line in order to re-fold future continuation
 	 * lines into one value.
@@ -156,6 +161,7 @@ struct credential {
 		 username_from_proto:1;
 
 	struct credential_capability capa_authtype;
+	struct credential_capability capa_state;
 
 	char *username;
 	char *password;
@@ -177,6 +183,7 @@ struct credential {
 	.helpers = STRING_LIST_INIT_DUP, \
 	.password_expiry_utc = TIME_MAX, \
 	.wwwauth_headers = STRVEC_INIT, \
+	.state_headers = STRVEC_INIT, \
 }
 
 /* Initialize a credential structure, setting all fields to empty. */
