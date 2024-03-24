@@ -38,6 +38,7 @@ void credential_clear(struct credential *c)
 static void credential_set_all_capabilities(struct credential *c)
 {
 	c->capa_authtype.request_initial = 1;
+	c->capa_state.request_initial = 1;
 }
 
 int credential_match(const struct credential *want,
