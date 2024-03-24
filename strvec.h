@@ -88,4 +88,9 @@ void strvec_clear(struct strvec *);
  */
 const char **strvec_detach(struct strvec *);
 
+/**
+ * Swap the contents of two `strvec` structs without allocating.
+ */
+void strvec_swap(struct strvec *, struct strvec *);
+
 #endif /* STRVEC_H */

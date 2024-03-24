@@ -106,3 +106,10 @@ const char **strvec_detach(struct strvec *array)
 		return ret;
 	}
 }
+
+void strvec_swap(struct strvec *a, struct strvec *b)
+{
+	struct strvec t = *a;
+	*a = *b;
+	*b = t;
+}
